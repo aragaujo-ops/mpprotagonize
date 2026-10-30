@@ -1,0 +1,1468 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>M&P.Protagonize | Carreira e Desenvolvimento Profissional</title>
+
+  <meta
+    name="description"
+    content="Orientação, mentoria e conteúdos para primeiro emprego, transição de carreira e desenvolvimento profissional."
+  >
+
+  <meta name="theme-color" content="#173f32">
+
+  <style>
+    :root {
+      --verde-escuro: #173f32;
+      --verde: #2f8f68;
+      --verde-claro: #eaf5ef;
+      --preto: #17201c;
+      --texto: #4c5752;
+      --branco: #ffffff;
+      --fundo: #f7faf8;
+      --borda: #dce8e1;
+      --coral: #d98262;
+      --sombra: 0 18px 45px rgba(23, 63, 50, 0.12);
+      --raio-grande: 28px;
+      --raio-medio: 16px;
+      --largura: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      color: var(--texto);
+      background: var(--branco);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+    body.menu-aberto {
+      overflow: hidden;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    .container {
+      width: min(100% - 40px, var(--largura));
+      margin: 0 auto;
+    }
+
+    .secao {
+      padding: 90px 0;
+    }
+
+    .secao-clara {
+      background: var(--fundo);
+    }
+
+    .secao-verde {
+      color: var(--branco);
+      background: var(--verde-escuro);
+    }
+
+    .etiqueta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      color: var(--verde);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .etiqueta::before {
+      width: 28px;
+      height: 2px;
+      background: currentColor;
+      content: "";
+    }
+
+    h1,
+    h2,
+    h3 {
+      color: var(--preto);
+      line-height: 1.15;
+    }
+
+    h1 {
+      max-width: 720px;
+      font-size: clamp(2.5rem, 5vw, 4.6rem);
+      letter-spacing: -0.055em;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.1rem);
+      letter-spacing: -0.04em;
+    }
+
+    h3 {
+      font-size: 1.2rem;
+    }
+
+    .secao-verde h2,
+    .secao-verde h3 {
+      color: var(--branco);
+    }
+
+    .titulo-secao {
+      max-width: 720px;
+      margin-bottom: 45px;
+    }
+
+    .titulo-secao p:not(.etiqueta) {
+      margin-top: 18px;
+      font-size: 1.08rem;
+    }
+
+    .botao {
+      display: inline-flex;
+      min-height: 52px;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 22px;
+      border: 2px solid transparent;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: 0.25s ease;
+    }
+
+    .botao:hover {
+      transform: translateY(-2px);
+    }
+
+    .botao:focus-visible,
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
+      outline: 3px solid var(--coral);
+      outline-offset: 3px;
+    }
+
+    .botao-principal {
+      color: var(--branco);
+      background: var(--verde);
+    }
+
+    .botao-principal:hover {
+      background: var(--verde-escuro);
+    }
+
+    .botao-contorno {
+      color: var(--verde-escuro);
+      border-color: var(--verde);
+      background: transparent;
+    }
+
+    .botao-contorno:hover {
+      color: var(--branco);
+      background: var(--verde);
+    }
+
+    .botao-branco {
+      color: var(--verde-escuro);
+      background: var(--branco);
+    }
+
+    .botao-pequeno {
+      min-height: 42px;
+      padding: 9px 17px;
+      font-size: 0.9rem;
+    }
+
+    /* Cabeçalho */
+
+    .cabecalho {
+      position: sticky;
+      z-index: 20;
+      top: 0;
+      border-bottom: 1px solid rgba(220, 232, 225, 0.9);
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(14px);
+    }
+
+    .cabecalho-conteudo {
+      display: flex;
+      min-height: 78px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo img {
+      width: 178px;
+      max-height: 62px;
+      object-fit: contain;
+      object-position: left center;
+    }
+
+    .navegacao {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: var(--preto);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .navegacao a:hover {
+      color: var(--verde);
+    }
+
+    .botao-menu {
+      display: none;
+      width: 45px;
+      height: 45px;
+      border: 1px solid var(--borda);
+      border-radius: 12px;
+      color: var(--verde-escuro);
+      background: var(--branco);
+      cursor: pointer;
+      font-size: 1.3rem;
+    }
+
+    /* Hero */
+
+    .hero {
+      padding: 85px 0 100px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 90% 15%, rgba(47, 143, 104, 0.16), transparent 28%),
+        linear-gradient(135deg, #ffffff 0%, #f1f8f4 100%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      align-items: center;
+      gap: 65px;
+    }
+
+    .hero-texto > p:not(.etiqueta) {
+      max-width: 640px;
+      margin: 26px 0 32px;
+      font-size: 1.16rem;
+    }
+
+    .acoes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    .hero-imagem {
+      width: 100%;
+      min-height: 500px;
+      border-radius: var(--raio-grande);
+      box-shadow: var(--sombra);
+      object-fit: cover;
+    }
+
+    /* Cartões */
+
+    .grade-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .grade-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .cartao {
+      height: 100%;
+      padding: 28px;
+      border: 1px solid var(--borda);
+      border-radius: var(--raio-medio);
+      background: var(--branco);
+      box-shadow: 0 8px 25px rgba(23, 63, 50, 0.04);
+      transition: 0.25s ease;
+    }
+
+    .cartao:hover {
+      border-color: rgba(47, 143, 104, 0.5);
+      box-shadow: var(--sombra);
+      transform: translateY(-5px);
+    }
+
+    .cartao p {
+      margin-top: 10px;
+    }
+
+    .icone {
+      display: grid;
+      width: 48px;
+      height: 48px;
+      margin-bottom: 22px;
+      place-items: center;
+      border-radius: 14px;
+      color: var(--verde-escuro);
+      background: var(--verde-claro);
+      font-size: 1.05rem;
+      font-weight: 800;
+    }
+
+    .imagem-cartao {
+      width: calc(100% + 56px);
+      height: 205px;
+      margin: -28px -28px 24px;
+      border-radius: var(--raio-medio) var(--raio-medio) 0 0;
+      object-fit: cover;
+    }
+
+    .link-cartao {
+      display: inline-flex;
+      margin-top: 22px;
+      color: var(--verde);
+      font-weight: 700;
+    }
+
+    /* Sobre */
+
+    .duas-colunas {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      align-items: center;
+      gap: 70px;
+    }
+
+    .imagem-sobre {
+      width: 100%;
+      min-height: 440px;
+      border-radius: var(--raio-grande);
+      box-shadow: var(--sombra);
+      object-fit: cover;
+    }
+
+    .texto-sobre p:not(.etiqueta) {
+      margin-top: 18px;
+    }
+
+    /* Jornada */
+
+    .jornada {
+      display: grid;
+      gap: 25px;
+    }
+
+    .jornada-item {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 16px;
+    }
+
+    .numero {
+      display: grid;
+      width: 40px;
+      height: 40px;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--branco);
+      background: var(--verde);
+      font-weight: 800;
+    }
+
+    .jornada-item strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--preto);
+      font-size: 1.15rem;
+    }
+
+    /* CTA */
+
+    .cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 35px;
+      padding: 58px;
+      border-radius: var(--raio-grande);
+      background: var(--verde);
+    }
+
+    .cta h2,
+    .cta p {
+      color: var(--branco);
+    }
+
+    .cta p {
+      max-width: 650px;
+      margin-top: 13px;
+    }
+
+    /* Contato */
+
+    .contato-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 60px;
+    }
+
+    .opcoes-contato {
+      display: grid;
+      gap: 15px;
+      margin-top: 28px;
+    }
+
+    .opcao-contato {
+      display: block;
+      padding: 18px;
+      border: 1px solid var(--borda);
+      border-radius: var(--raio-medio);
+      background: var(--branco);
+    }
+
+    .opcao-contato:hover {
+      border-color: var(--verde);
+    }
+
+    .opcao-contato strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--preto);
+    }
+
+    .formulario {
+      padding: 32px;
+      border: 1px solid var(--borda);
+      border-radius: var(--raio-grande);
+      background: var(--branco);
+      box-shadow: var(--sombra);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .campo {
+      display: grid;
+      gap: 7px;
+      margin-bottom: 18px;
+    }
+
+    .campo-completo {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      color: var(--preto);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1px solid var(--borda);
+      border-radius: 10px;
+      color: var(--preto);
+      background: var(--fundo);
+    }
+
+    textarea {
+      min-height: 125px;
+      resize: vertical;
+    }
+
+    .observacao-formulario {
+      margin-top: 14px;
+      font-size: 0.82rem;
+    }
+
+    .mensagem-sucesso {
+      display: none;
+      margin-top: 18px;
+      padding: 14px;
+      border-radius: 10px;
+      color: #155b3d;
+      background: #e6f5eb;
+    }
+
+    .mensagem-sucesso.exibir {
+      display: block;
+    }
+
+    /* Rodapé */
+
+    .rodape {
+      padding: 58px 0 25px;
+      color: #c9ddd3;
+      background: #102d25;
+    }
+
+    .rodape-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 35px;
+      padding-bottom: 45px;
+    }
+
+    .rodape h3 {
+      margin-bottom: 15px;
+      color: var(--branco);
+      font-size: 1rem;
+    }
+
+    .rodape p {
+      max-width: 290px;
+    }
+
+    .links-rodape {
+      display: grid;
+      gap: 9px;
+    }
+
+    .links-rodape a:hover {
+      color: var(--branco);
+    }
+
+    .rodape-final {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      font-size: 0.86rem;
+    }
+
+    /* WhatsApp e cookies */
+
+    .whatsapp {
+      position: fixed;
+      z-index: 15;
+      right: 22px;
+      bottom: 22px;
+      display: grid;
+      width: 58px;
+      height: 58px;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--branco);
+      background: #20b866;
+      box-shadow: 0 8px 25px rgba(32, 184, 102, 0.35);
+      font-size: 1.5rem;
+    }
+
+    .cookies {
+      position: fixed;
+      z-index: 30;
+      right: 20px;
+      bottom: 20px;
+      display: none;
+      max-width: 430px;
+      padding: 22px;
+      border: 1px solid var(--borda);
+      border-radius: 18px;
+      background: var(--branco);
+      box-shadow: var(--sombra);
+    }
+
+    .cookies.exibir {
+      display: block;
+    }
+
+    .cookies h3 {
+      margin-bottom: 7px;
+    }
+
+    .cookies p {
+      font-size: 0.9rem;
+    }
+
+    .acoes-cookies {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    /* Responsividade */
+
+    @media (max-width: 980px) {
+      .navegacao {
+        gap: 12px;
+        font-size: 0.82rem;
+      }
+
+      .botao-cabecalho {
+        display: none;
+      }
+
+      .hero-grid,
+      .duas-colunas,
+      .contato-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+      }
+
+      .grade-4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .rodape-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 700px) {
+      .container {
+        width: min(100% - 28px, var(--largura));
+      }
+
+      .secao {
+        padding: 68px 0;
+      }
+
+      .cabecalho-conteudo {
+        min-height: 68px;
+      }
+
+      .logo img {
+        width: 145px;
+      }
+
+      .botao-menu {
+        display: block;
+      }
+
+      .navegacao {
+        position: fixed;
+        top: 68px;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 25px 28px;
+        background: var(--branco);
+        transform: translateX(100%);
+        transition: transform 0.25s ease;
+      }
+
+      .navegacao.aberta {
+        transform: translateX(0);
+      }
+
+      .navegacao a {
+        padding: 16px 0;
+        border-bottom: 1px solid var(--borda);
+        font-size: 1.05rem;
+      }
+
+      .hero {
+        padding: 65px 0 75px;
+      }
+
+      .hero-imagem {
+        min-height: 330px;
+      }
+
+      .grade-3,
+      .grade-4 {
+        grid-template-columns: 1fr;
+      }
+
+      .cta {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 32px 25px;
+      }
+
+      .acoes {
+        width: 100%;
+        flex-direction: column;
+      }
+
+      .acoes .botao {
+        width: 100%;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .campo-completo {
+        grid-column: auto;
+      }
+
+      .formulario {
+        padding: 22px;
+      }
+
+      .rodape-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .rodape-final {
+        flex-direction: column;
+      }
+
+      .cookies {
+        right: 12px;
+        bottom: 12px;
+        left: 12px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="cabecalho">
+    <div class="container cabecalho-conteudo">
+
+      <a class="logo" href="#inicio" aria-label="M&P.Protagonize - início">
+        <img src="LOGO.png" alt="Logo M&P.Protagonize">
+      </a>
+
+      <button
+        class="botao-menu"
+        type="button"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+        aria-controls="navegacao"
+      >
+        ☰
+      </button>
+
+      <nav class="navegacao" id="navegacao" aria-label="Navegação principal">
+        <a href="#inicio">Início</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#como-ajudamos">Como ajudamos</a>
+        <a href="#para-quem-e">Para quem é</a>
+        <a href="#conteudos">Conteúdos</a>
+        <a href="#contato">Contato</a>
+      </nav>
+
+      <a class="botao botao-principal botao-pequeno botao-cabecalho" href="#contato">
+        Encontre seu próximo passo
+      </a>
+
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+
+        <div class="hero-texto">
+          <p class="etiqueta">Carreira, clareza e desenvolvimento</p>
+
+          <h1>
+            Transforme dúvidas em direção para o seu próximo passo profissional
+          </h1>
+
+          <p>
+            A M&P.Protagonize apoia pessoas no primeiro emprego e em transição
+            de carreira com orientação, mentoria, conhecimento prático e
+            desenvolvimento profissional.
+          </p>
+
+          <div class="acoes">
+            <a class="botao botao-principal" href="#como-ajudamos">
+              Encontre seu próximo passo
+            </a>
+
+            <a class="botao botao-contorno" href="#sobre">
+              Conheça a M&P.Protagonize
+            </a>
+          </div>
+        </div>
+
+        <img
+          class="hero-imagem"
+          src="pessoaplanejandocarreirawebp.jpg"
+          alt="Pessoa planejando seus próximos passos profissionais"
+          fetchpriority="high"
+        >
+
+      </div>
+    </section>
+
+    <section class="secao" id="para-quem-e">
+      <div class="container">
+
+        <div class="titulo-secao">
+          <p class="etiqueta">Encontre seu ponto de partida</p>
+          <h2>Qual é o seu próximo desafio?</h2>
+          <p>
+            Cada momento profissional pede um tipo de reflexão, preparação e
+            desenvolvimento.
+          </p>
+        </div>
+
+        <div class="grade-3">
+
+          <article class="cartao">
+            <img
+              class="imagem-cartao"
+              src="primeiroempregowebp.jpg"
+              alt="Pessoa se preparando para uma primeira oportunidade profissional"
+              loading="lazy"
+            >
+            <div class="icone">01</div>
+            <h3>Primeiro emprego</h3>
+            <p>
+              Está buscando sua primeira oportunidade e quer se preparar melhor
+              para o mercado?
+            </p>
+            <a class="link-cartao" href="#contato">Quero me preparar →</a>
+          </article>
+
+          <article class="cartao">
+            <img
+              class="imagem-cartao"
+              src="transicaocarreirawebp.jpg"
+              alt="Pessoa refletindo sobre uma transição de carreira"
+              loading="lazy"
+            >
+            <div class="icone">02</div>
+            <h3>Transição de carreira</h3>
+            <p>
+              Deseja mudar de área, função ou direção profissional com mais
+              clareza?
+            </p>
+            <a class="link-cartao" href="#contato">Quero mudar de carreira →</a>
+          </article>
+
+          <article class="cartao">
+            <img
+              class="imagem-cartao"
+              src="preparacaoentrevistawebp.jpg"
+              alt="Pessoa se preparando para uma entrevista profissional"
+              loading="lazy"
+            >
+            <div class="icone">03</div>
+            <h3>Desenvolvimento profissional</h3>
+            <p>
+              Quer fortalecer suas competências e se sentir mais preparado para
+              novas oportunidades?
+            </p>
+            <a class="link-cartao" href="#contato">Quero me desenvolver →</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="secao secao-clara" id="sobre">
+      <div class="container duas-colunas">
+
+        <img
+          class="imagem-sobre"
+          src="transicaocarreirawebp.jpg"
+          alt="Pessoa analisando possibilidades para sua trajetória profissional"
+          loading="lazy"
+        >
+
+        <div class="texto-sobre">
+          <p class="etiqueta">Sobre a M&P.Protagonize</p>
+
+          <h2>
+            Conhecimento prático para decisões profissionais mais conscientes
+          </h2>
+
+          <p>
+            Nem sempre é fácil saber por onde começar. A M&P.Protagonize
+            existe para apoiar pessoas que precisam transformar dúvidas em
+            clareza, conhecimento e ação.
+          </p>
+
+          <p>
+            Nossa abordagem combina orientação, escuta e experiências práticas
+            dos ambientes operacional e corporativo para ajudar você a
+            compreender suas possibilidades e construir o próximo passo com
+            mais confiança.
+          </p>
+
+          <a class="botao botao-principal" style="margin-top: 26px;" href="#como-ajudamos">
+            Conheça nossa abordagem
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="secao" id="como-ajudamos">
+      <div class="container">
+
+        <div class="titulo-secao">
+          <p class="etiqueta">Soluções para sua jornada</p>
+          <h2>Apoio para diferentes momentos profissionais</h2>
+          <p>
+            Escolha o formato que melhor corresponde ao seu objetivo e ao seu
+            momento atual.
+          </p>
+        </div>
+
+        <div class="grade-3">
+
+          <article class="cartao">
+            <div class="icone">01</div>
+            <h3>Mentoria individual</h3>
+            <p>
+              Acompanhamento personalizado para refletir sobre objetivos,
+              desafios e próximos passos.
+            </p>
+          </article>
+
+          <article class="cartao">
+            <div class="icone">02</div>
+            <h3>Orientação profissional</h3>
+            <p>
+              Apoio para compreender possibilidades de carreira e tomar decisões
+              mais conscientes.
+            </p>
+          </article>
+
+          <article class="cartao">
+            <div class="icone">03</div>
+            <h3>Currículo e LinkedIn</h3>
+            <p>
+              Orientações para apresentar sua experiência, formação e
+              competências com mais clareza.
+            </p>
+          </article>
+
+          <article class="cartao">
+            <div class="icone">04</div>
+            <h3>Preparação para entrevistas</h3>
+            <p>
+              Prática e direcionamento para desenvolver segurança e comunicar
+              seu potencial.
+            </p>
+          </article>
+
+          <article class="cartao">
+            <div class="icone">05</div>
+            <h3>Cursos e treinamentos</h3>
+            <p>
+              Conteúdos estruturados para desenvolver conhecimentos e
+              competências profissionais.
+            </p>
+          </article>
+
+          <article class="cartao">
+            <div class="icone">06</div>
+            <h3>Workshops e palestras</h3>
+            <p>
+              Experiências educativas para grupos, empresas e instituições.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="secao secao-verde">
+      <div class="container">
+
+        <div class="titulo-secao">
+          <p class="etiqueta" style="color: #a8dbc0;">
+            Nossa forma de trabalhar
+          </p>
+          <h2>Por que contar com a M&P.Protagonize?</h2>
+        </div>
+
+        <div class="grade-4">
+
+          <article class="cartao">
+            <div class="icone">♡</div>
+            <h3>Abordagem humana</h3>
+            <p>
+              Cada pessoa possui uma história, um momento e necessidades
+              específicas.
+            </p>
+          </article>
+
+          <article class="cartao">
+            <div class="icone">↗</div>
+            <h3>Conhecimento aplicável</h3>
+            <p>
+              O conteúdo é conectado à realidade do ambiente profissional.
+            </p>
+          </article>
+
+          <article class="cartao">
+            <div class="icone">✓</div>
+            <h3>Orientação responsável</h3>
+            <p>
+              Sem promessas irreais de emprego ou resultados garantidos.
+            </p>
+          </article>
+
+          <article class="cartao">
+            <div class="icone">+</div>
+            <h3>Desenvolvimento com autonomia</h3>
+            <p>
+              Você participa ativamente da construção da própria trajetória.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="secao secao-clara">
+      <div class="container">
+
+        <div class="titulo-secao">
+          <p class="etiqueta">Uma jornada possível</p>
+          <h2>Seu próximo passo começa com clareza</h2>
+        </div>
+
+        <div class="jornada">
+
+          <div class="jornada-item">
+            <span class="numero">1</span>
+            <div>
+              <strong>Entender</strong>
+              <p>Identifique seu momento, suas dúvidas e seus objetivos.</p>
+            </div>
+          </div>
+
+          <div class="jornada-item">
+            <span class="numero">2</span>
+            <div>
+              <strong>Desenvolver</strong>
+              <p>Construa conhecimentos e fortaleça competências importantes.</p>
+            </div>
+          </div>
+
+          <div class="jornada-item">
+            <span class="numero">3</span>
+            <div>
+              <strong>Preparar</strong>
+              <p>Organize sua apresentação e prepare-se para oportunidades.</p>
+            </div>
+          </div>
+
+          <div class="jornada-item">
+            <span class="numero">4</span>
+            <div>
+              <strong>Agir</strong>
+              <p>Transforme planejamento em uma ação possível e consistente.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="secao" id="conteudos">
+      <div class="container">
+
+        <div class="titulo-secao">
+          <p class="etiqueta">Conteúdos gratuitos</p>
+          <h2>Informação para apoiar sua jornada</h2>
+          <p>
+            Orientações práticas sobre primeiro emprego, transição de carreira,
+            currículo, entrevistas e desenvolvimento profissional.
+          </p>
+        </div>
+
+        <div class="grade-3">
+
+          <article class="cartao">
+            <img
+              class="imagem-cartao"
+              src="primeiroempregowebp.jpg"
+              alt="Pessoa estudando e se preparando para o primeiro emprego"
+              loading="lazy"
+            >
+            <div class="icone">CV</div>
+            <h3>Como criar um currículo para o primeiro emprego</h3>
+            <p>
+              Veja o que destacar mesmo quando você ainda não possui experiência
+              formal.
+            </p>
+            <a class="link-cartao" href="#contato">Ler conteúdo →</a>
+          </article>
+
+          <article class="cartao">
+            <img
+              class="imagem-cartao"
+              src="preparacaoentrevistawebp.jpg"
+              alt="Pessoa participando de uma preparação para entrevista"
+              loading="lazy"
+            >
+            <div class="icone">?</div>
+            <h3>Como se preparar para uma entrevista sem experiência</h3>
+            <p>
+              Organize suas respostas e comunique melhor suas competências.
+            </p>
+            <a class="link-cartao" href="#contato">Ler conteúdo →</a>
+          </article>
+
+          <article class="cartao">
+            <img
+              class="imagem-cartao"
+              src="transicaocarreirawebp.jpg"
+              alt="Pessoa analisando possibilidades de mudança profissional"
+              loading="lazy"
+            >
+            <div class="icone">→</div>
+            <h3>Como identificar competências para uma transição</h3>
+            <p>
+              Reflita sobre experiências, interesses e possibilidades de
+              desenvolvimento.
+            </p>
+            <a class="link-cartao" href="#contato">Ler conteúdo →</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="secao secao-clara" id="contato">
+      <div class="container contato-grid">
+
+        <div>
+          <p class="etiqueta">Vamos conversar</p>
+
+          <h2>Está pronto para transformar dúvida em direção?</h2>
+
+          <p style="margin-top: 20px;">
+            Conte-nos sobre o momento profissional que você está vivendo e
+            descubra quais possibilidades de apoio podem fazer sentido para
+            você.
+          </p>
+
+          <div class="opcoes-contato">
+
+            <a
+              class="opcao-contato"
+              href="https://wa.me/5524988085478"
+              target="_blank"
+              rel="noopener"
+            >
+              <strong>WhatsApp</strong>
+              <span>Fale conosco pelo WhatsApp</span>
+            </a>
+
+            <a
+              class="opcao-contato"
+              href="mailto:contato@mpprotagonize.com.br"
+            >
+              <strong>E-mail</strong>
+              <span>contato@mpprotagonize.com.br</span>
+            </a>
+
+            <div class="opcao-contato">
+              <strong>Atendimento</strong>
+              <span>Consulte disponibilidade e formato de atendimento.</span>
+            </div>
+
+          </div>
+        </div>
+
+        <form class="formulario" id="formulario-contato">
+
+          <div class="form-grid">
+
+            <div class="campo">
+              <label for="nome">Nome</label>
+              <input id="nome" name="nome" type="text" required>
+            </div>
+
+            <div class="campo">
+              <label for="email">E-mail</label>
+              <input id="email" name="email" type="email" required>
+            </div>
+
+            <div class="campo campo-completo">
+              <label for="momento">Qual é o seu momento profissional?</label>
+
+              <select id="momento" name="momento" required>
+                <option value="">Selecione uma opção</option>
+                <option>Buscando o primeiro emprego</option>
+                <option>Em transição de carreira</option>
+                <option>Buscando desenvolvimento profissional</option>
+                <option>Represento uma empresa ou instituição</option>
+                <option>Outro momento</option>
+              </select>
+            </div>
+
+            <div class="campo campo-completo">
+              <label for="mensagem">Como podemos ajudar?</label>
+              <textarea id="mensagem" name="mensagem" required></textarea>
+            </div>
+
+          </div>
+
+          <button class="botao botao-principal" type="submit">
+            Enviar mensagem
+          </button>
+
+          <p class="observacao-formulario">
+            Ao enviar, você concorda com o contato da M&P.Protagonize para
+            responder à sua solicitação. A política de privacidade deverá ser
+            publicada antes do uso definitivo do formulário.
+          </p>
+
+          <div
+            class="mensagem-sucesso"
+            id="mensagem-sucesso"
+            role="status"
+          >
+            Mensagem registrada nesta demonstração. Para ativar o envio real,
+            conecte o formulário a um e-mail, CRM ou serviço de formulários.
+          </div>
+
+        </form>
+
+      </div>
+    </section>
+
+    <section class="secao">
+      <div class="container">
+
+        <div class="cta">
+          <div>
+            <h2>Seu próximo passo pode começar com uma conversa</h2>
+            <p>
+              Dê um primeiro passo com mais clareza, preparo e confiança.
+            </p>
+          </div>
+
+          <div class="acoes">
+            <a class="botao botao-branco" href="#contato">
+              Falar com a M&P.Protagonize
+            </a>
+
+            <a
+              class="botao botao-contorno"
+              style="color: white; border-color: white;"
+              href="#conteudos"
+            >
+              Explorar conteúdos
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="rodape">
+    <div class="container">
+
+      <div class="rodape-grid">
+
+        <div>
+          <h3>M&P.Protagonize</h3>
+          <p>
+            Mentoria, orientação e desenvolvimento profissional para quem busca
+            construir novos caminhos.
+          </p>
+        </div>
+
+        <div>
+          <h3>Navegação</h3>
+          <div class="links-rodape">
+            <a href="#inicio">Início</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#como-ajudamos">Como ajudamos</a>
+            <a href="#conteudos">Conteúdos</a>
+            <a href="#contato">Contato</a>
+          </div>
+        </div>
+
+        <div>
+          <h3>Soluções</h3>
+          <div class="links-rodape">
+            <a href="#como-ajudamos">Mentoria</a>
+            <a href="#como-ajudamos">Orientação profissional</a>
+            <a href="#como-ajudamos">Currículo e LinkedIn</a>
+            <a href="#como-ajudamos">Entrevistas</a>
+          </div>
+        </div>
+
+        <div>
+          <h3>Contato</h3>
+          <div class="links-rodape">
+            <a
+              href="https://wa.me/5524988085478"
+              target="_blank"
+              rel="noopener"
+            >
+              WhatsApp
+            </a>
+            <a href="mailto:contato@mpprotagonize.com.br">
+              E-mail
+            </a>
+            <a href="#contato">Falar conosco</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="rodape-final">
+        <span>© 2026 M&P.Protagonize. Todos os direitos reservados.</span>
+        <span>Transforme dúvidas em direção.</span>
+      </div>
+
+    </div>
+  </footer>
+
+  <a
+    class="whatsapp"
+    href="https://wa.me/5524988085478"
+    target="_blank"
+    rel="noopener"
+    aria-label="Falar com a M&P.Protagonize pelo WhatsApp"
+    title="WhatsApp"
+  >
+    ☎
+  </a>
+
+  <aside class="cookies" id="cookies" aria-label="Aviso de cookies">
+    <h3>Privacidade e cookies</h3>
+
+    <p>
+      Utilizamos cookies essenciais para o funcionamento desta página. Recursos
+      de análise e marketing deverão ser ativados somente após a configuração
+      adequada do consentimento.
+    </p>
+
+    <div class="acoes-cookies">
+      <button class="botao botao-principal botao-pequeno" id="aceitar-cookies">
+        Aceitar
+      </button>
+
+      <button class="botao botao-contorno botao-pequeno" id="fechar-cookies">
+        Agora não
+      </button>
+    </div>
+  </aside>
+
+  <script>
+    const botaoMenu = document.querySelector(".botao-menu");
+    const navegacao = document.querySelector(".navegacao");
+    const linksNavegacao = document.querySelectorAll(".navegacao a");
+
+    const formulario = document.querySelector("#formulario-contato");
+    const mensagemSucesso = document.querySelector("#mensagem-sucesso");
+
+    const cookies = document.querySelector("#cookies");
+    const aceitarCookies = document.querySelector("#aceitar-cookies");
+    const fecharCookies = document.querySelector("#fechar-cookies");
+
+    function fecharMenu() {
+      navegacao.classList.remove("aberta");
+      document.body.classList.remove("menu-aberto");
+
+      botaoMenu.setAttribute("aria-expanded", "false");
+      botaoMenu.setAttribute("aria-label", "Abrir menu");
+      botaoMenu.textContent = "☰";
+    }
+
+    botaoMenu.addEventListener("click", () => {
+      const menuAberto = navegacao.classList.toggle("aberta");
+
+      document.body.classList.toggle("menu-aberto", menuAberto);
+      botaoMenu.setAttribute("aria-expanded", String(menuAberto));
+      botaoMenu.setAttribute(
+        "aria-label",
+        menuAberto ? "Fechar menu" : "Abrir menu"
+      );
+
+      botaoMenu.textContent = menuAberto ? "×" : "☰";
+    });
+
+    linksNavegacao.forEach((link) => {
+      link.addEventListener("click", fecharMenu);
+    });
+
+    formulario.addEventListener("submit", (evento) => {
+      evento.preventDefault();
+
+      mensagemSucesso.classList.add("exibir");
+      formulario.reset();
+
+      mensagemSucesso.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+    });
+
+    function exibirCookies() {
+      const escolha = localStorage.getItem("mp-cookie-escolha");
+
+      if (!escolha) {
+        cookies.classList.add("exibir");
+      }
+    }
+
+    function ocultarCookies(escolha) {
+      localStorage.setItem("mp-cookie-escolha", escolha);
+      cookies.classList.remove("exibir");
+    }
+
+    aceitarCookies.addEventListener("click", () => {
+      ocultarCookies("aceito");
+    });
+
+    fecharCookies.addEventListener("click", () => {
+      ocultarCookies("adiado");
+    });
+
+    exibirCookies();
+  </script>
+
+</body>
+</html>
